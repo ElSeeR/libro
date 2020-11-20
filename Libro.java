@@ -40,9 +40,17 @@ public class Libro {
         System.out.println("El título del libro es " + titulo);
     }
     
-    public int numeroPaginas(){
+    public int getNumeroPaginas(){
         return paginas;
     }
     
+    public void imprimirDetalles(){
+        System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
+        paginas);
+    }
     
+    public String getDetalles(){
+        return "Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
+        paginas;
+    }
 }
