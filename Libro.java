@@ -14,17 +14,20 @@ public class Libro {
     private int paginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas)
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, 
+    boolean libroDeTexto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         paginas = numeroDePaginas;
         numeroReferencia = "";
-        vecesPrestado = 0;
+        vecesPrestado = 0; 
+        esLibroDeTexto = libroDeTexto;
     }
    
     public String getAutorLibro(){
@@ -48,27 +51,45 @@ public class Libro {
     }
     
     public void imprimirDetalles(){
-        if(numeroReferencia != ""){
-            System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
-            paginas + ", Núm. de referencia: " + numeroReferencia + ", Veces prestado: " + vecesPrestado);
-        }
-        else{
-            System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
-            paginas + ", Núm. de referencia: ZZZ " + ", Veces prestado: " + vecesPrestado);
-        }
-       
-    }
-    
-    public String getDetalles(){
         String estadoReferencia;
+        String esDeTexto;
         if(numeroReferencia != ""){
             estadoReferencia = numeroReferencia;
         }
         else{
             estadoReferencia = "ZZZ";
         }
+        
+        if(esLibroDeTexto == true){
+            esDeTexto = "Sí";
+        }
+        else{
+            esDeTexto = "No";
+        }
+        System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
+        paginas + ", Núm. de referencia: " + estadoReferencia + ", Veces prestado: " + vecesPrestado
+         + ", ¿El libro es de texto?: " + esDeTexto);
+    }
+    
+    public String getDetalles(){
+        String estadoReferencia;
+        String esDeTexto;
+        if(numeroReferencia != ""){
+            estadoReferencia = numeroReferencia;
+        }
+        else{
+            estadoReferencia = "ZZZ";
+        }
+        
+        if(esLibroDeTexto == true){
+            esDeTexto = "Sí";
+        }
+        else{
+            esDeTexto = "No";
+        }
         return "Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
-            paginas + ", Núm. de referencia: " + estadoReferencia + ", Veces prestado: " + vecesPrestado;
+        paginas + ", Núm. de referencia: " + estadoReferencia + ", Veces prestado: " + vecesPrestado
+         + ", ¿El libro es de texto?: " + esDeTexto;
     }
     
     public void setNumeroReferencia(String referencia){
@@ -90,5 +111,9 @@ public class Libro {
     
     public int getVecesPrestado(){
         return vecesPrestado;
+    }
+    
+    public boolean GetEsLibroDeTexto(){
+        return esLibroDeTexto;
     }
 }
