@@ -1,4 +1,3 @@
-
 /**
  * Una clase que representa objetos libro.
  * Esta clase podria formar parte de un
@@ -14,6 +13,7 @@ public class Libro {
     private String titulo;
     private int paginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +24,7 @@ public class Libro {
         titulo = tituloLibro;
         paginas = numeroDePaginas;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
    
     public String getAutorLibro(){
@@ -49,11 +50,11 @@ public class Libro {
     public void imprimirDetalles(){
         if(numeroReferencia != ""){
             System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
-            paginas + ", Núm. de referencia: " + numeroReferencia);
+            paginas + ", Núm. de referencia: " + numeroReferencia + ", Veces prestado: " + vecesPrestado);
         }
         else{
             System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
-            paginas + ", Núm. de referencia: ZZZ");
+            paginas + ", Núm. de referencia: ZZZ " + ", Veces prestado: " + vecesPrestado);
         }
        
     }
@@ -67,7 +68,7 @@ public class Libro {
             estadoReferencia = "ZZZ";
         }
         return "Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
-            paginas + ", Núm. de referencia: " + estadoReferencia;
+            paginas + ", Núm. de referencia: " + estadoReferencia + ", Veces prestado: " + vecesPrestado;
     }
     
     public void setNumeroReferencia(String referencia){
@@ -81,5 +82,13 @@ public class Libro {
     
     public String getNumeroReferencia(){
         return numeroReferencia;
+    }
+    
+    public void prestarLibro(){
+        vecesPrestado = vecesPrestado + 1;
+    }
+    
+    public int getVecesPrestado(){
+        return vecesPrestado;
     }
 }
