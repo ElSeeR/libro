@@ -64,11 +64,13 @@ public class Libro {
     }
     
     public void setNumeroReferencia(String referencia){
-        numeroReferencia = referencia;
-        if(numeroReferencia.length() < 3){
+        if(referencia.length() < 3){
             numeroReferencia = "";
             System.out.println("El número de referencia es demasiado corto");
         } 
+        else{
+            numeroReferencia = referencia;
+        }
     }
     
     public String getNumeroReferencia(){
