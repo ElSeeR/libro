@@ -59,8 +59,15 @@ public class Libro {
     }
     
     public String getDetalles(){
+        String estadoReferencia;
+        if(numeroReferencia != ""){
+            estadoReferencia = numeroReferencia;
+        }
+        else{
+            estadoReferencia = "ZZZ";
+        }
         return "Título: " + titulo + ", Autor: " + autor + ", Páginas: " +
-        paginas + ", Núm. de referencia: " + numeroReferencia;
+            paginas + ", Núm. de referencia: " + estadoReferencia;
     }
     
     public void setNumeroReferencia(String referencia){
